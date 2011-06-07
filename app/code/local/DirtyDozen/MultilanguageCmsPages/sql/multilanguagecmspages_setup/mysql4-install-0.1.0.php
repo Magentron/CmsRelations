@@ -12,8 +12,6 @@
 
 $this->startSetup();
 
-$table = $this->getTable('cmsrelations_group');
-
 $this->run("
 
 CREATE TABLE IF NOT EXISTS ${$this->getTable('cmsrelations_group')}
