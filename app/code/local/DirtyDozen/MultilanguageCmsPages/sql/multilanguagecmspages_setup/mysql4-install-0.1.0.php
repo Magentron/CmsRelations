@@ -6,7 +6,7 @@ $this->startSetup();
 
 $this->run("
 
-CREATE TABLE IF NOT EXISTS ${$this->getTable('cmsrelations_group')}
+CREATE TABLE IF NOT EXISTS {$this->getTable('cmsrelations_group')}
 (
   `group_id` smallint unsigned not null auto_increment primary key,
   `name` varchar(63) not null,
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS ${$this->getTable('cmsrelations_group')}
 ) ENGINE=InnoDB CHARSET=utf8;
 
 
-CREATE TABLE IF NOT EXISTS ${$this->getTable('cmsrelations_grouppage')}
+CREATE TABLE IF NOT EXISTS {$this->getTable('cmsrelations_grouppage')}
 (
   `group_id` smallint unsigned not null,
   `page_id` mediumint unsigned not null,
