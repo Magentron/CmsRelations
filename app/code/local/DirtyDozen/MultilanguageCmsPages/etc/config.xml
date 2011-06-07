@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   DirtyDozen
+ * @package    DirtyDozen_MultilanguageCmsPages
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <DirtyDozen_MultilanguageCmsPages>
+            <version>0.1.0</version>
+        </DirtyDozen_MultilanguageCmsPages>
+    </modules>
+    <!--
+    <frontend>
+        <routers>
+            <multilanguagecmspages>
+                <use>standard</use>
+                <args>
+                    <module>DirtyDozen_MultilanguageCmsPages</module>
+                    <frontName>multilanguagecmspages</frontName>
+                </args>
+            </multilanguagecmspages>
+        </routers>
+        <layout>
+            <updates>
+                <multilanguagecmspages>
+                    <file>multilanguagecmspages.xml</file>
+                </multilanguagecmspages>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<multilanguagecmspages>
+				<use>admin</use>
+				<args>
+					<module>DirtyDozen_MultilanguageCmsPages</module>
+					<frontName>multilanguagecmspages</frontName>
+				</args>
+			</multilanguagecmspages>
+        </routers>
+    </admin>
+    <adminhtml>
+
+		<menu>
+			<multilanguagecmspages module="multilanguagecmspages">
+				<title>MultilanguageCmsPages</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="multilanguagecmspages">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>multilanguagecmspages/adminhtml_multilanguagecmspages</action>
+					</items>
+				</children>
+			</multilanguagecmspages>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<DirtyDozen_MultilanguageCmsPages>
+							<title>MultilanguageCmsPages Module</title>
+							<sort_order>10</sort_order>
+						</DirtyDozen_MultilanguageCmsPages>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<multilanguagecmspages>
+					<file>multilanguagecmspages.xml</file>
+				</multilanguagecmspages>
+			</updates>
+		</layout>
+    </adminhtml>   
+     -->
+    <global>
+        <models>
+            <multilanguagecmspages>
+                <class>DirtyDozen_MultilanguageCmsPages_Model</class>
+                <resourceModel>multilanguagecmspages_mysql4</resourceModel>
+            </multilanguagecmspages>
+            <multilanguagecmspages_mysql4>
+                <class>DirtyDozen_MultilanguageCmsPages_Model_Mysql4</class>
+                <entities>
+                    <cms_page_relation>
+                        <table>cms_page_relation</table>
+                    </cms_page_relation>
+                </entities>
+            </multilanguagecmspages_mysql4>
+        </models>
+        <resources>
+            <multilanguagecmspages_setup>
+                <setup>
+                    <module>DirtyDozen_MultilanguageCmsPages</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </multilanguagecmspages_setup>
+            <multilanguagecmspages_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </multilanguagecmspages_write>
+            <multilanguagecmspages_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </multilanguagecmspages_read>
+        </resources>
+        <blocks>
+            <multilanguagecmspages>
+                <class>DirtyDozen_MultilanguageCmsPages_Block</class>
+            </multilanguagecmspages>
+        </blocks>
+        <helpers>
+            <multilanguagecmspages>
+                <class>DirtyDozen_MultilanguageCmsPages_Helper</class>
+            </multilanguagecmspages>
+        </helpers>
+        <events>
+            <cms_controller_router_match_before>
+                <observers>
+                    <multilanguagecmspages>
+                        <type>singleton</type>
+                        <class>multilanguagecmspages/observer</class>
+                        <method>redirectStoreCmsPage</method>
+                    </multilanguagecmspages>
+                </observers>
+            </cms_controller_router_match_before>
+            <adminhtml_cms_page_edit_tab_main_prepare_form>
+                <observers>
+                    <multilanguagecmspages>
+                        <type>singleton</type>
+                        <class>multilanguagecmspages/observer</class>
+                        <method>addRelatedPagesSelector</method>
+                    </multilanguagecmspages>
+                </observers>
+            </adminhtml_cms_page_edit_tab_main_prepare_form>
+        </events>
+            -->
+    </global>
+    <adminhtml>
+        <events />
+      <layout>
+          <updates>
+              <multilanguagecmspages>
+                  <file>multilanguagecmspages.xml</file>
+              </multilanguagecmspages>
+          </updates>
+      </layout>
+    </adminhtml>
+</config>
