@@ -21,8 +21,15 @@ class DirtyDozen_MultilanguageCmsPages_Model_Observer
             $request->setDispatched(true);
         }
     }
-
-    //public function adminhtml_cms_page_edit_tab_main_prepare_form($observer)
+    
+    /**
+     * Used to work with Magento 2 (maybe)
+     */
+    public function adminhtml_cms_page_edit_tab_main_prepare_form($observer)
+    {
+        // Uses observer
+        exit;
+    }
 
     /**
      * add related pages selector to cms page form
@@ -49,7 +56,6 @@ class DirtyDozen_MultilanguageCmsPages_Model_Observer
      * get multilanguage redirect or return null if no custom redirect is required
      * 
      * @param string $identifier 
-     *
      * @return string|null
      */
     protected function getMultilanguageRedirect($identifier)

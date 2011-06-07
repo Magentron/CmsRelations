@@ -3,7 +3,6 @@ class DirtyDozen_MultilanguageCmsPages_IndexController extends Mage_Core_Control
 {
     public function indexAction()
     {
-    	
     	/*
     	 * Load an object by id 
     	 * Request looking like:
