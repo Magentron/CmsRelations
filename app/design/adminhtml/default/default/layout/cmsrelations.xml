@@ -1,0 +1,5 @@
+<layout>
+    <reference name="adminhtml_cms_page_edit_tab_main">
+        <block type="cmsrelations/adminhtml_cms_edit_relations" name="cms_relations" before="-" />
+    </reference>
+</layout>
