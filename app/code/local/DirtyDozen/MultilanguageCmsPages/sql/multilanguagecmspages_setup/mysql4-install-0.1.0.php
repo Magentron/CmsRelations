@@ -1,20 +1,39 @@
 <?php
+/**
+ * DirtyDozen Magento CMSRelations setup sql 
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    
+ * @package     _home
+ */
 
-$installer = $this;
+$this->startSetup();
 
-$installer->startSetup();
+$this->run("
 
-$installer->run("
+CREATE TABLE IF NOT EXISTS {$this->getTable('cmsrelations_group')} (
+(
+  `group_id` smallint unsigned not null auto_increment primary key,
+  `name` varchar(63) not null,
+  `type` tinyint unsigned not null default 0, // CLASS CONSTANTS MAY BE  1 = Translation, 2 = Paging, 3 = Similarity
+  `is_active` tinyint unsigned not null default 0,
+  `updated_at` timestamp not null on update current_timestamp default current_timestamp
+) ENGINE=InnoDB CHARSET=utf8;
 
--- DROP TABLE IF EXISTS {$this->getTable('cms_page_relation')};
-CREATE TABLE {$this->getTable('cms_page_relation')} (
-	`cms_page_relation_id` smallint(6) NOT NULL AUTO_INCREMENT,
-	`store_id` smallint(5) unsigned NOT NULL,
-    `parent_page_id` smallint(6) NOT NULL,
-    `child_page_id` smallint(6) NOT NULL,
-  PRIMARY KEY (`cms_page_relation_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS {$this->getTable('cmsrelations_grouppage')} (
+(
+  `group_id` smallint unsigned not null,
+  `page_id` mediumint unsigned not null,
+  `specification` varchar(31) null,
+  `updated_at` timestamp not null on update current_timestamp default current_timestamp
+  PRIMARY KEY (`page`, `group`),
+) ENGINE=InnoDB CHARSET=utf8;
 
-    ");
+");
 
-$installer->endSetup(); 
+$this->endSetup();
+
+
