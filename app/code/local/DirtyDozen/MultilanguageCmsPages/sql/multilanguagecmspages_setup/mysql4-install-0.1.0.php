@@ -12,24 +12,25 @@
 
 $this->startSetup();
 
+$table = $this->getTable('cmsrelations_group');
 $this->run("
 
-CREATE TABLE IF NOT EXISTS {$this->getTable('cmsrelations_group')} (
+CREATE TABLE IF NOT EXISTS $table
 (
   `group_id` smallint unsigned not null auto_increment primary key,
   `name` varchar(63) not null,
-  `type` tinyint unsigned not null default 0, // CLASS CONSTANTS MAY BE  1 = Translation, 2 = Paging, 3 = Similarity
+  `type` tinyint unsigned not null default 0,
   `is_active` tinyint unsigned not null default 0,
-  `updated_at` timestamp not null on update current_timestamp default current_timestamp
+  `updated_at` timestamp
 ) ENGINE=InnoDB CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS {$this->getTable('cmsrelations_grouppage')} (
+CREATE TABLE IF NOT EXISTS $table
 (
   `group_id` smallint unsigned not null,
   `page_id` mediumint unsigned not null,
   `specification` varchar(31) null,
-  `updated_at` timestamp not null on update current_timestamp default current_timestamp
-  PRIMARY KEY (`page`, `group`),
+  `updated_at` timestamp,
+  PRIMARY KEY (`page_id`, `group_id`)
 ) ENGINE=InnoDB CHARSET=utf8;
 
 ");
