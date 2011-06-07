@@ -96,6 +96,11 @@
                     </cms_page_relation>
                 </entities>
             </multilanguagecmspages_mysql4>
+            <cms>
+                <rewrite>
+                    <page>DirtyDozen_MultilanguageCmsPages_Model_Cms_Page</page>
+                </rewrite>
+            </cms>
         </models>
         <resources>
             <multilanguagecmspages_setup>

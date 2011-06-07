@@ -32,8 +32,10 @@ class DirtyDozen_MultilanguageCmsPages_Model_Observer
      */
     public function addRelatedPagesSelector(Varien_Event_Observer $observer)
     {
-        $form = $observer->getForm();
-        $fieldset = $form->addFieldset('multilanguage_cms_pages', array('legend'=>Mage::helper('multilanguagecmspages')->__('Related Pages')));
+		$form = $observer->getForm();
+		Mage::log(get_class(Mage::getModel('cms/page')));
+		$foo=Mage::getModel('cms/page')->getRelatedMultilanguageCmsPages();
+		$fieldset = $form->addFieldset('related_cms_pages', array('legend'=>Mage::helper('multilanguagecmspages')->__('Related Pages')));
         $fieldset->addField('related_multilanguage_cms_pages', 'multiselect', array(
             'name'      => 'related_multilanguage_cms_pages[]',
             'label'     => Mage::helper('multilanguagecmspages')->__('Same page in other languages'),

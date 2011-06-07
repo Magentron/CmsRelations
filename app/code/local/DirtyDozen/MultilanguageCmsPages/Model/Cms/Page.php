@@ -41,15 +41,15 @@ class DirtyDozen_MultilanguageCmsPages_Model_Cms_Page extends Mage_Cms_Model_Pag
      */
     public function getRelatedMultilanguageCmsPages()
     {
-        $relationCollection = Mage::getModel('multilanguagecmspages/cms_page_relations')
-            ->getResource()
+        Mage::log('loading related pages');
+        $relationCollection = Mage::getResourceModel('multilanguagecmspages/cms_page_relation')
             ->getCollection();
         $relation = $relationCollection
             ->addFieldToFilter('page_id', $this->getPageId())
             ->getFirstItem();
         $relatedPageIds = $relationCollection
             ->addFieldToFilter('relation_set_id', $relation->getRelationSetId());
-        var_dump($relatedPageIds->toArray());exit;
+        Mage::log($relatedPageIds->toArray());
     }
 
     public function saveRelatedPages()
