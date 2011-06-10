@@ -5,75 +5,6 @@
             <version>0.1.0</version>
         </DirtyDozen_CmsRelations>
     </modules>
-    <!--
-    <frontend>
-        <routers>
-            <cmsrelations>
-                <use>standard</use>
-                <args>
-                    <module>DirtyDozen_CmsRelations</module>
-                    <frontName>cmsrelations</frontName>
-                </args>
-            </cmsrelations>
-        </routers>
-        <layout>
-            <updates>
-                <cmsrelations>
-                    <file>cmsrelations.xml</file>
-                </cmsrelations>
-            </updates>
-        </layout>
-    </frontend>
-    <admin>
-        <routers>
-			<cmsrelations>
-				<use>admin</use>
-				<args>
-					<module>DirtyDozen_CmsRelations</module>
-					<frontName>cmsrelations</frontName>
-				</args>
-			</cmsrelations>
-        </routers>
-    </admin>
-    <adminhtml>
-
-		<menu>
-			<cmsrelations module="cmsrelations">
-				<title>CmsRelations</title>
-				<sort_order>71</sort_order>               
-				<children>
-					<items module="cmsrelations">
-						<title>Manage Items</title>
-						<sort_order>0</sort_order>
-						<action>cmsrelations/adminhtml_cmsrelations</action>
-					</items>
-				</children>
-			</cmsrelations>
-		</menu>
-		<acl>
-			<resources>
-				<all>
-					<title>Allow Everything</title>
-				</all>
-				<admin>
-					<children>
-						<DirtyDozen_CmsRelations>
-							<title>CmsRelations Module</title>
-							<sort_order>10</sort_order>
-						</DirtyDozen_CmsRelations>
-					</children>
-				</admin>
-			</resources>
-		</acl>
-		<layout>
-			<updates>
-				<cmsrelations>
-					<file>cmsrelations.xml</file>
-				</cmsrelations>
-			</updates>
-		</layout>
-    </adminhtml>   
-     -->
     <global>
         <models>
             <cmsrelations>
@@ -88,6 +19,11 @@
                     </cms_page_relation>
                 </entities>
             </cmsrelations_mysql4>
+            <cms>
+                <rewrite>
+                    <page>DirtyDozen_CmsRelations_Model_Cms_Page</page>
+                </rewrite>
+            </cms>
         </models>
         <resources>
             <cmsrelations_setup>
@@ -139,10 +75,8 @@
                 </observers>
             </adminhtml_cms_page_edit_tab_main_prepare_form>
         </events>
-            -->
     </global>
     <adminhtml>
-        <events />
       <layout>
           <updates>
               <cmsrelations>

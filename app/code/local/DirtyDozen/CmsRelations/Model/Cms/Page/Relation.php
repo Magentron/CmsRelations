@@ -2,16 +2,14 @@
 /**
  * Page Relation
  */
-class DirtyDozen_CmsRelations_Model_Mysql4_Cms_Page_Relation extends Mage_Core_Model_Mysql4_Abstract
+class DirtyDozen_CmsRelations_Model_Cms_Page_Relation extends Mage_Core_Model_Abstract
 {
     /**
-     * Constructor
-     * 
-     * @return void
+     * Initialize resource model
+     *
      */
-    public function _construct()
-    {    
-        // Note that the cmsrelations_id refers to the key field in your database table.
-        $this->_init('cmsrelations/cms_page_relation', 'cmsrelations_id');
+    protected function _construct()
+    {
+        $this->_init('cmsrelations/cms_page_relation');
     }
 }

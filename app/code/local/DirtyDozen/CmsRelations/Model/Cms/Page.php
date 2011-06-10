@@ -39,10 +39,10 @@ class DirtyDozen_CmsRelations_Model_Cms_Page extends Mage_Cms_Model_Page
      * 
      * @return Collection
      */
-    public function getRelatedCmsRelations()
+    public function getRelatedTranslations()
     {
-        $relationCollection = Mage::getModel('cmsrelations/cms_page_relations')
-            ->getResource()
+        Mage::log('loading related pages');
+        $relationCollection = Mage::getModel('cmsrelations/cms_page_relation')
             ->getCollection();
         $relation = $relationCollection
             ->addFieldToFilter('page_id', $this->getPageId())
